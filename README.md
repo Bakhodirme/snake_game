@@ -78,14 +78,21 @@ python main.py
 
 ## Media
 
-The repository is prepared for screenshots or a demo GIF in the `assets/` folder.
+### Screenshot
 
-Suggested file names:
+![Snake Game Screenshot](assets/snake-screenshot.png)
+
+### Demo GIF
+
+Add your gameplay GIF as:
 
 - `assets/snake-demo.gif`
-- `assets/snake-screenshot.png`
 
-Once those files are added, you can embed them in this README.
+Then embed it with:
+
+```md
+![Snake Game Demo](assets/snake-demo.gif)
+```
 
 ## Possible Improvements
 
