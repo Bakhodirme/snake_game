@@ -4,7 +4,7 @@ A classic Snake game built with Python and the built-in `turtle` module.
 
 ## About
 
-This project is a small desktop game where the player controls a snake inside a 600x600 window. The snake grows each time it eats food, the score updates in real time, and the game ends when the snake hits a wall or its own body.
+This project is a small desktop game where the player controls a snake inside a 600x600 window. The snake grows each time it eats food, the score updates in real time, and the current run resets when the snake hits a wall or its own body.
 
 ## Features
 
@@ -12,12 +12,14 @@ This project is a small desktop game where the player controls a snake inside a 
 - Keyboard controls with arrow keys
 - Random food spawning
 - Score tracking at the top of the screen
+- Persistent high score saved between runs
 - Collision detection for walls and tail
+- Automatic snake reset after collision
 - Simple object-oriented project structure
 
 ## Gameplay
 
-The snake starts with three segments and moves continuously across the screen. Each time it touches the food, the food respawns at a random position, the snake grows by one segment, and the score increases by one.
+The snake starts with three segments and moves continuously across the screen. Each time it touches the food, the food respawns at a random position, the snake grows by one segment, and the score increases by one. If the snake hits the wall or its own body, the snake resets to the starting size and the score returns to zero while the high score is kept.
 
 ## Controls
 
@@ -54,6 +56,7 @@ python main.py
 ```text
 .
 |-- food.py
+|-- data.txt
 |-- main.py
 |-- scoreboard.py
 |-- snake.py
@@ -66,15 +69,17 @@ python main.py
 - `main.py` sets up the screen, starts the game loop, handles input, and checks collisions.
 - `snake.py` defines the `Snake` class, movement behavior, and growth logic.
 - `food.py` defines the `Food` class and handles random food repositioning.
-- `scoreboard.py` defines the `Scoreboard` class for score display and game-over text.
+- `scoreboard.py` defines the `Scoreboard` class for current score, persistent high score, and score reset behavior.
+- `data.txt` stores the saved high score.
 
 ## Game Rules
 
 1. The snake starts with three body segments.
 2. Eating food increases the score by one.
 3. Eating food also adds one segment to the snake.
-4. The game ends if the snake touches the window border.
-5. The game ends if the snake touches its own tail.
+4. The current run resets if the snake touches the window border.
+5. The current run resets if the snake touches its own tail.
+6. The highest score is saved and shown at the top of the screen.
 
 ## Media
 
@@ -96,10 +101,10 @@ Then embed it with:
 
 ## Possible Improvements
 
-- Add a restart option after game over
-- Keep a high score between runs
+- Add a replay prompt after a collision
 - Prevent food from spawning on the snake body
 - Add difficulty levels by increasing speed
+- Add a pause or restart key
 
 ## Notes
 
